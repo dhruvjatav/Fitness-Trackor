@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellness And Fitness - BMI Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">🏋️ Tracker</a>
+    <a href="bmi.html">📏 BMI</a>
+    <a href="profile.html">👤 Profile</a>
+    <a href="login.html">🔐 Logout</a>
+    <button onclick="toggleDarkMode()">🌓</button>
+  </nav>
+
+  <main>
+    <h1>BMI Calculator</h1>
+    <form id="bmiForm">
+      <input type="number" id="height" placeholder="Height (cm)" required>
+      <input type="number" id="weight" placeholder="Weight (kg)" required>
+      <button type="submit">Calculate BMI</button>
+    </form>
+    <div id="bmiResult"></div>
+  </main>
+
+  <script src="main.js"></script>
+  <script>
+    const bmiForm = document.getElementById('bmiForm');
+    const bmiResult = document.getElementById('bmiResult');
+
+    bmiForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const height = parseFloat(document.getElementById('height').value);
+      const weight = parseFloat(document.getElementById('weight').value);
+      if (!height || !weight) return;
+
+      const bmi = weight / ((height / 100) ** 2);
+      let category = '';
+
+      if (bmi < 18.5) category = 'Underweight';
+      else if (bmi < 24.9) category = 'Normal weight';
+      else if (bmi < 29.9) category = 'Overweight';
+      else category = 'Obese';
+
+      bmiResult.innerHTML = `<h3>Your BMI: ${bmi.toFixed(1)}</h3><p>Category: ${category}</p>`;
+    });
+  </script>
+</body>
+</html>
 
