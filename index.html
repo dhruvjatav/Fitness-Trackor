@@ -1,1 +1,36 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellness And Fitness - Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">🏋️ Tracker</a>
+    <a href="bmi.html">📏 BMI</a>
+    <a href="profile.html">👤 Profile</a>
+    <a href="login.html">🔐 Logout</a>
+    <button onclick="toggleDarkMode()">🌓</button>
+  </nav>
+
+  <main>
+    <h1>Workout Tracker</h1>
+    <form id="workoutForm">
+      <input type="text" id="type" placeholder="Workout Type (e.g. Push)" required>
+      <input type="number" id="duration" placeholder="Duration (mins)" required>
+      <input type="number" id="calories" placeholder="Calories Burned" required>
+      <button type="submit">Add Workout</button>
+    </form>
+    <ul id="workoutList"></ul>
+    <button onclick="exportCSV()">Export CSV</button>
+    <canvas id="progressChart" width="400" height="200"></canvas>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
 
